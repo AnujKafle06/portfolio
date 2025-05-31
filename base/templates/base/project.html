@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block contain %}
+<div class="max-w-4xl mx-auto px-6 py-12">
+    <!-- Main Card Section -->
+    <div class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600 text-white shadow-xl rounded-lg overflow-hidden transform hover:scale-105 transition duration-500 ease-in-out">
+
+        <!-- Image Section with Hover Effect -->
+        <img src="{{ project.image.url }}" alt="{{ project.name }}" class="w-full h-72 object-cover transition-all duration-500 ease-in-out hover:brightness-75">
+
+        <!-- Content Section -->
+        <div class="p-8 bg-white text-gray-800 rounded-b-lg">
+            <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-600 mb-6 hover:text-gray-900">{{ project.name }}</h1>
+            <p class="text-lg mb-6 leading-relaxed text-gray-700">{{ project.description }}</p>
+            <p class="text-sm text-gray-500 mb-8">Created on: {{ project.created_at|date:"F j, Y" }}</p>
+
+            <!-- Return Button -->
+            <a href="{% url 'Home' %}" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+                Return
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

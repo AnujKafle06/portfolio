@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block contain %}
+<div class="max-w-lg mx-auto px-6 py-12">
+    <!-- Form Card -->
+    <div class="bg-white shadow-2xl rounded-xl p-8">
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Contact Form</h2>
+
+        <form action="" method="POST" class="space-y-6">
+            {% csrf_token %}
+            
+            <!-- Default Form Rendering (as_p) -->
+            <div class="space-y-4">
+                {{ form.as_p }}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold text-lg transition duration-300 ease-in-out hover:scale-105">
+                Send
+            </button>
+        </form>
+
+        <!-- Cancel Link -->
+        <div class="mt-6 text-center">
+            <a href="{% url 'Home' %}" class="text-blue-600 hover:text-blue-800 font-medium text-lg transition duration-200">Cancel</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

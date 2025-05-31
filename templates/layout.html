@@ -1,0 +1,76 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% tailwind_css %}
+  <title>{% block title %}My Portfolio{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  {% block head %}{% endblock head %}
+</head>
+
+<body class="bg-white text-gray-900 font-inter tracking-wide">
+
+  {% block nav %}
+  <header class="shadow-lg border-b-4 border-yellow-500 sticky top-0 z-50 bg-white">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between p-4 md:px-8">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <img src="{% static 'logo AK.png' %}" alt="Logo" class="w-12 h-12 rounded-full shadow-md" />
+        <span class="text-2xl font-bold text-purple-700 tracking-tight">Anuj Kafle</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="hidden md:flex items-center space-x-8 font-medium">
+        <li><a href="#" class="hover:text-blue-600 transition">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-600 transition">About</a></li>
+        <li><a href="#skills" class="hover:text-blue-600 transition">Skills</a></li>
+        <li><a href="#contact" class="hover:text-blue-600 transition">Contact</a></li>
+        <li><a href="#project" class="hover:text-blue-600 transition">Projects</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="ml-6">
+        <a href="{% url 'contact' %}">
+          <button class="bg-blue-600 hover:bg-blue-800 text-white px-5 py-2 rounded-lg shadow transition duration-300">
+            Hire Me
+          </button>
+        </a>
+      </div>
+    </nav>
+  </header>
+  {% endblock %}
+
+  {% block contain %}
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Your content goes here -->
+    <!-- Add hero section, about, skills etc. -->
+  </main>
+  {% endblock %}
+
+  {% block footer %}
+  <footer class="bg-gray-100 mt-20 py-6 border-t text-center text-sm text-gray-500">
+    &copy; 2024 — Anuj Kafle. All Rights Reserved.
+  </footer>
+  {% endblock %}
+
+  <!-- Optional Smooth Scroll Script -->
+  {% comment %} <script>
+    function navigateToPath() {
+      const hash = window.location.hash;
+      if (hash) {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    window.addEventListener("load", navigateToPath);
+    window.addEventListener("popstate", navigateToPath);
+  </script> {% endcomment %}
+
+</body>
+</html>
